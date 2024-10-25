@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5433/tracker-task
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jwt:
+    token:
+      expirationTime: 10000
+      secret: c87f94e5-64ec-455a-a73b-e6c6c759c2e6
+
+  jpa:
+    hibernate:
+      ddl-auto: update
