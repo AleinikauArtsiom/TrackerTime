@@ -1,6 +1,6 @@
-package com.example.timetracker.api.security.entity.dtoFactories;
+package com.example.timetracker.api.security.authAndReg.dtoFactories;
 
-import com.example.timetracker.api.security.entity.UserSecurity;
+import com.example.timetracker.store.entity.UserSecurity;
 import com.example.timetracker.api.dto.UserSecurityDto;
 import org.springframework.stereotype.Component;
 

@@ -1,14 +1,13 @@
-package com.example.timetracker.api.security.service;
+package com.example.timetracker.api.services;
 
 import com.example.timetracker.api.dto.UserDtoUpdate;
 import com.example.timetracker.api.exception.NotFoundException;
 import com.example.timetracker.api.exception.SameUserInDataBase;
 import com.example.timetracker.api.exception.UserHasProjectsException;
-import com.example.timetracker.api.exception.UserReqEmailException;
-import com.example.timetracker.api.security.entity.UserSecurity;
+import com.example.timetracker.store.entity.UserSecurity;
 import com.example.timetracker.api.dto.UserSecurityDto;
-import com.example.timetracker.api.security.entity.dtoFactories.UserSecurityDtoFactory;
-import com.example.timetracker.api.security.repository.UserSecurityRepository;
+import com.example.timetracker.api.security.authAndReg.dtoFactories.UserSecurityDtoFactory;
+import com.example.timetracker.store.repository.UserSecurityRepository;
 import com.example.timetracker.store.entity.Project;
 import com.example.timetracker.store.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.example.timetracker.api.security.entity;
+package com.example.timetracker.api.security.authAndReg;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

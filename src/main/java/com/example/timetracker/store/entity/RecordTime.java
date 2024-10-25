@@ -1,6 +1,5 @@
 package com.example.timetracker.store.entity;
 
-import com.example.timetracker.api.security.entity.UserSecurity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,11 +19,11 @@ public class RecordTime {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private Project project;  // Связывание с таблицей Project через project_id
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserSecurity userSecurity;  // Связывание с таблицей UserSecurity через user_id
 

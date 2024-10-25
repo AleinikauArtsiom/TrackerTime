@@ -28,7 +28,7 @@ public class JwtFilter extends OncePerRequestFilter {
         this.jwtUtils = jwtUtils;
         this.customUserDetailService = customUserDetailService;
     }
-
+    //логика для обработки аутентификации на основе токена
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         Optional<String> token = jwtUtils.getTokenFromRequest(request);

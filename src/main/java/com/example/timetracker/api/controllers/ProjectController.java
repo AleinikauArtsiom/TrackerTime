@@ -38,8 +38,8 @@ public class ProjectController {
     // Создаёт новый проект, доступно только для роли ADMIN.
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/createProject")
-    public ProjectDto createProject(@RequestBody ProjectDto projectDto) {
-        return projectService.createProject(projectDto);
+    public ResponseEntity<ProjectDto> createProject(@RequestBody ProjectDto projectDto) {
+        return ResponseEntity.ok(projectDto);
     }
 
     //Deletes a project by ID; accessible by ADMIN role.

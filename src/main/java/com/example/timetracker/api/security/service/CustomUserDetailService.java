@@ -1,7 +1,7 @@
 package com.example.timetracker.api.security.service;
 
-import com.example.timetracker.api.security.entity.UserSecurity;
-import com.example.timetracker.api.security.repository.UserSecurityRepository;
+import com.example.timetracker.store.entity.UserSecurity;
+import com.example.timetracker.store.repository.UserSecurityRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;

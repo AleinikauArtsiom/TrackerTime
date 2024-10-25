@@ -1,4 +1,4 @@
-package com.example.timetracker.api.security.entity;
+package com.example.timetracker.store.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

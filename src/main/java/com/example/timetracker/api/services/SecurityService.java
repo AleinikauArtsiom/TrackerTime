@@ -1,13 +1,14 @@
-package com.example.timetracker.api.security.service;
+package com.example.timetracker.api.services;
 
 
 import com.example.timetracker.api.exception.SameUserInDataBase;
-import com.example.timetracker.api.security.entity.Roles;
+import com.example.timetracker.store.entity.Roles;
+import com.example.timetracker.api.security.service.JwtUtils;
 import org.springframework.stereotype.Service;
-import com.example.timetracker.api.security.entity.UserSecurity;
-import com.example.timetracker.api.security.entity.dto.AuthRequestDto;
-import com.example.timetracker.api.security.entity.dto.UserSecurityRegistrationDto;
-import com.example.timetracker.api.security.repository.UserSecurityRepository;
+import com.example.timetracker.store.entity.UserSecurity;
+import com.example.timetracker.api.security.authAndReg.dto.AuthRequestDto;
+import com.example.timetracker.api.security.authAndReg.dto.UserSecurityRegistrationDto;
+import com.example.timetracker.store.repository.UserSecurityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -35,7 +36,7 @@ public class SecurityService {
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
     }
-
+    //регистрация юзера
     @Transactional(rollbackFor = Exception.class)
     public void registerUser(UserSecurityRegistrationDto registrationDto) {
         if (userSecurityRepository.existsByLogin(registrationDto.getLogin())) {

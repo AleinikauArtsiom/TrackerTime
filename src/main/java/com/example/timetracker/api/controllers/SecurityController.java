@@ -1,10 +1,9 @@
-package com.example.timetracker.api.security.controller;
+package com.example.timetracker.api.controllers;
 
-import com.example.timetracker.api.security.entity.dto.AuthRequestDto;
-import com.example.timetracker.api.security.entity.dto.AuthResponseDto;
-import com.example.timetracker.api.security.entity.dto.UserSecurityRegistrationDto;
-import com.example.timetracker.api.security.service.SecurityService;
-import com.example.timetracker.api.security.service.UserSecurityService;
+import com.example.timetracker.api.security.authAndReg.dto.AuthRequestDto;
+import com.example.timetracker.api.security.authAndReg.dto.AuthResponseDto;
+import com.example.timetracker.api.security.authAndReg.dto.UserSecurityRegistrationDto;
+import com.example.timetracker.api.services.SecurityService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

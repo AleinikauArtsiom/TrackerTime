@@ -1,4 +1,4 @@
-package com.example.timetracker.api.security.entity.dto;
+package com.example.timetracker.api.security.authAndReg.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

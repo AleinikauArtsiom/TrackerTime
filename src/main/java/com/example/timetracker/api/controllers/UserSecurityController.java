@@ -1,9 +1,9 @@
-package com.example.timetracker.api.security.controller;
+package com.example.timetracker.api.controllers;
 
 import com.example.timetracker.api.dto.UserDtoUpdate;
 import com.example.timetracker.api.dto.UserSecurityDto;
-import com.example.timetracker.api.security.entity.UserSecurity;
-import com.example.timetracker.api.security.service.UserSecurityService;
+import com.example.timetracker.store.entity.UserSecurity;
+import com.example.timetracker.api.services.UserSecurityService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -42,8 +42,8 @@ public class UserSecurityController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
-    public UserSecurity createUser(@RequestBody UserSecurity user) {
-        return userSecurityService.createUser(user);
+    public ResponseEntity<UserSecurity> createUser(@RequestBody UserSecurity user) {
+        return ResponseEntity.ok(user);
     }
 
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")

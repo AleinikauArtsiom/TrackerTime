@@ -1,6 +1,5 @@
 package com.example.timetracker.store.entity;
 
-import com.example.timetracker.api.security.entity.UserSecurity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +20,7 @@ public class Project {
     @Column(name = "project_name", nullable = false, length = 255)
     private String projectName;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserSecurity userSecurity;
 }

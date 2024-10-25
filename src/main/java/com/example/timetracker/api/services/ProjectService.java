@@ -3,12 +3,12 @@ package com.example.timetracker.api.services;
 import com.example.timetracker.api.dto.ProjectDto;
 import com.example.timetracker.api.exception.NotFoundException;
 import com.example.timetracker.api.exception.UserHasProjectsException;
-import com.example.timetracker.api.security.entity.UserSecurity;
+import com.example.timetracker.store.entity.UserSecurity;
 import com.example.timetracker.store.entity.Project;
 import com.example.timetracker.store.entity.RecordTime;
 import com.example.timetracker.store.repository.ProjectRepository;
 import com.example.timetracker.store.repository.RecordTimeRepository;
-import com.example.timetracker.api.security.repository.UserSecurityRepository;
+import com.example.timetracker.store.repository.UserSecurityRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;

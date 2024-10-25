@@ -2,9 +2,8 @@ package com.example.timetracker.api.services;
 
 import com.example.timetracker.api.dto.RecordTimeDto;
 import com.example.timetracker.api.exception.NotFoundException;
-import com.example.timetracker.api.security.entity.UserSecurity;
-import com.example.timetracker.api.security.repository.UserSecurityRepository;
-import com.example.timetracker.store.entity.Project;
+import com.example.timetracker.store.entity.UserSecurity;
+import com.example.timetracker.store.repository.UserSecurityRepository;
 import com.example.timetracker.store.entity.RecordTime;
 import com.example.timetracker.store.repository.ProjectRepository;
 import com.example.timetracker.store.repository.RecordTimeRepository;
@@ -50,6 +49,7 @@ public class RecordTimeService {
         return convertRecordToDto(recordTime);
     }
 
+    //отсчет времени с проверкой на то что принадледжит ли проект данному пользователю
     public void startDevelop(Long recordId) {
         RecordTime recordTime = recordTimeRepository.findById(recordId)
                 .orElseThrow(() -> new NotFoundException("Запись не найдена"));
@@ -70,6 +70,7 @@ public class RecordTimeService {
         }
     }
 
+    // STOP отсчет времени
     public void stopDevelop(Long recordId) {
         LocalDateTime startTime = startTimes.get(recordId);
         if (startTime != null) {
@@ -98,11 +99,11 @@ public class RecordTimeService {
         }
     }
 
+    // Возвращаем записи, принадлежащие текущему пользователю
     public List<RecordTimeDto> getUserRecords(String username) {
         UserSecurity user = userSecurityRepository.findByLogin(username)
                 .orElseThrow(() -> new NotFoundException("Пользователь не найден"));
 
-        // Возвращаем записи, принадлежащие текущему пользователю
         return recordTimeRepository.findAllByUserSecurity(user).stream()
                 .map(this::convertRecordToDto)
                 .collect(Collectors.toList());

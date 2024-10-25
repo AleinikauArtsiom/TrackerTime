@@ -1,4 +1,4 @@
-package com.example.timetracker.api.security.entity.dto;
+package com.example.timetracker.api.security.authAndReg.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
