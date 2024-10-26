@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     password: postgres
-    url: jdbc:postgresql://localhost:5433/tracker-task
+    url: jdbc:postgresql://localhost:5433/task_time_tracker
     username: postgres
     driver-class-name: org.postgresql.Driver
   flyway:

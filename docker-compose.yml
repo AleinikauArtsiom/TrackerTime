@@ -1,15 +1,15 @@
 services:
   postgres-db:
-    image: postgres:15.8       # Используем образ PostgreSQL версии 13
+    image: postgres:15.8
     container_name: postgres-db
     environment:
-      POSTGRES_USER: postgres    # Замените на нужного пользователя
-      POSTGRES_PASSWORD: root    # Замените на нужный пароль
-      POSTGRES_DB: tracker_time_db   # Имя базы данных
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: tracker_time_db
     ports:
       - "5432:5432"
     volumes:
-      - postgres-data:/var/lib/postgresql/data   # Сохранение данных между перезапусками контейнера
+      - postgres-data:/var/lib/postgresql/data
     networks:
       - spring-postgres-network
 
@@ -18,21 +18,21 @@ services:
     container_name: time-tracker-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/tracker_time_db
-      SPRING_DATASOURCE_USERNAME: postgres   # Должен совпадать с POSTGRES_USER
-      SPRING_DATASOURCE_PASSWORD: root   # Должен совпадать с POSTGRES_PASSWORD
-      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop       # Позволяет автоматически обновлять схему базы данных
-      SPRING_JPA_SHOW_SQL: "true"                 # Для логгирования SQL-запросов
-      JWT_TOKEN_EXPIRATION_TIME: 10000   # Переменная для JWT времени истечения
-      JWT_SECRET: c87f94e5-64ec-455a-a73b-e6c6c759c2e6   # Переменная для JWT секрета
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      SPRING_JPA_SHOW_SQL: "true"
+      JWT_TOKEN_EXPIRATION_TIME: 10000
+      JWT_SECRET: c87f94e5-64ec-455a-a73b-e6c6c759c2e6
     ports:
       - "8080:8080"
     depends_on:
-      - postgres-db    # Указывает, что контейнер базы данных должен стартовать раньше
+      - postgres-db
     networks:
       - spring-postgres-network
 
 volumes:
-  postgres-data:   # Создаем том для хранения данных PostgreSQL
+  postgres-data:
 
 networks:
-  spring-postgres-network:   # Создаем общую сеть для контейнеров
+  spring-postgres-network:
